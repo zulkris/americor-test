@@ -7,9 +7,7 @@
  * @var $exportType string
  */
 
-use app\models\History;
 use app\widgets\Export\Export;
-use app\widgets\HistoryList\helpers\HistoryListHelper;
 
 $filename = 'history';
 $filename .= '-' . time();
@@ -20,37 +18,33 @@ ini_set('memory_limit', '2048M');
 
 <?= Export::widget([
     'dataProvider' => $dataProvider,
-    'columns' => [
-        [
-            'attribute' => 'ins_ts',
-            'label' => Yii::t('app', 'Date'),
-            'format' => 'datetime'
-        ],
-        [
-            'label' => Yii::t('app', 'User'),
-            'value' => function (History $model) {
-                return isset($model->user) ? $model->user->username : Yii::t('app', 'System');
-            }
-        ],
-        [
-            'label' => Yii::t('app', 'Type'),
-            'value' => function (History $model) {
-                return $model->object;
-            }
-        ],
-        [
-            'label' => Yii::t('app', 'Event'),
-            'value' => function (History $model) {
-                return $model->eventText;
-            }
-        ],
-        [
-            'label' => Yii::t('app', 'Message'),
-            'value' => function (History $model) {
-                return strip_tags(HistoryListHelper::getBodyByModel($model));
-            }
-        ]
-    ],
+//    'columns' => [
+//        [
+//            'attribute' => 'ins_ts',
+//            'label' => Yii::t('app', 'Date'),
+//            'format' => 'datetime'
+//        ],
+//        [
+//            'label' => Yii::t('app', 'User'),
+//            'value' => isset($model['username']) ??  Yii::t('app', 'System'),
+//        ],
+//        [
+//            'label' => Yii::t('app', 'Type'),
+//            'value' => $model['object'],
+//        ],
+//        [
+//            'label' => Yii::t('app', 'Event'),
+//            'value' => $model['event'],
+//        ],
+//        [
+//            'label' => Yii::t('app', 'Message'),
+//            'value' => $model['event'],
+////
+////            'value' => function ($model) {
+////                return strip_tags(HistoryListHelper::getBodyByModel($model));
+////            }
+//        ]
+//    ],
     'exportType' => $exportType,
     'batchSize' => 2000,
     'filename' => $filename

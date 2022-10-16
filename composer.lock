@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0602e9b7b9def8a179d81f258081916",
+    "content-hash": "3b63ad67894165bc8e06d482320daf00",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -370,6 +370,51 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.16.0"
             },
             "time": "2022-09-18T07:06:19+00:00"
+        },
+        {
+            "name": "gri3li/yii2-csvdataprovider",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gri3li/yii2-csvdataprovider.git",
+                "reference": "ba9bf3aad9444d40e7df8826a0927f086debabc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gri3li/yii2-csvdataprovider/zipball/ba9bf3aad9444d40e7df8826a0927f086debabc9",
+                "reference": "ba9bf3aad9444d40e7df8826a0927f086debabc9",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "2.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "gri3li\\yii2csvdataprovider\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mikhail Gerasimov",
+                    "email": "migerasimoff@gmail.com"
+                }
+            ],
+            "description": "CsvDataProvider implements a data provider based on a csv",
+            "keywords": [
+                "csv",
+                "dataprovider",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/gri3li/yii2-csvdataprovider/issues",
+                "source": "https://github.com/gri3li/yii2-csvdataprovider/tree/master"
+            },
+            "time": "2018-10-09T18:48:17+00:00"
         },
         {
             "name": "kartik-v/yii2-dialog",

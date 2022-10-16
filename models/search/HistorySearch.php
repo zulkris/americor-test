@@ -2,9 +2,14 @@
 
 namespace app\models\search;
 
+use app\commands\ExportController;
 use app\models\History;
+use gri3li\yii2csvdataprovider\CsvDataProvider;
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\data\SqlDataProvider;
 
 /**
  * HistorySearch represents the model behind the search form about `app\models\History`.
@@ -58,7 +63,7 @@ class HistorySearch extends History
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
-            $query->where('0=1');
+            History::find()->where('0=1');
             return $dataProvider;
         }
 
@@ -73,5 +78,12 @@ class HistorySearch extends History
         ]);
 
         return $dataProvider;
+    }
+
+    public function getCsvDataProvider(): CsvDataProvider
+    {
+       return new CsvDataProvider([
+           'filename' => Yii::getAlias('@app/runtime/export/') . ExportController::HISTORY_EXPORT_FILE,
+       ]);
     }
 }
