@@ -1,14 +1,16 @@
 <?php
 
+use app\models\search\EventResolver;
 use app\models\search\HistorySearch;
-use yii\data\ActiveDataProvider;
+use yii\data\SqlDataProvider;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $dataProvider ActiveDataProvider */
+/* @var $dataProvider SqlDataProvider */
 /* @var $model HistorySearch */
+/* @var $eventResolver EventResolver */
 /* @var $linkExport string */
 
 ?>
@@ -34,7 +36,8 @@ use yii\widgets\Pjax;
 
 <?php echo ListView::widget([
     'dataProvider' => $dataProvider,
-    'itemView' => '_item',
+    //'itemView' => '_item',
+    'itemView' => $eventResolver->createRenderEventFunc($model),
     'options' => [
         'tag' => 'ul',
         'class' => 'list-group'
